@@ -14,6 +14,7 @@ class My1StCdkProjectStack(core.Stack):
             self,
             "mybucketid",
             bucket_name="my1stcdkbucket2020",
-            versioned=True,
-            encryption=_s3.BucketEncryption.S3_MANAGED
+            versioned=False,
+            encryption=_s3.BucketEncryption.KMS_MANAGED,
+            block_public_access=_s3.BlockPublicAccess.BLOCK_ALL
         )
