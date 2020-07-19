@@ -1,5 +1,6 @@
 from aws_cdk import (
     aws_s3 as _s3,
+    aws_iam as _iam,
     core
 )
 
@@ -32,9 +33,13 @@ class My1StCdkProjectStack(core.Stack):
             export_name="mybucketOuput1"        
         )
 
-        #snstopicname = "abczys1234"
+        
+        _iam.Group(self,
+                    "cdkgid")
 
-        #if not core.Token.is_unresolved(snstopicname) and len(snstopicname) > 10:
-           # raise ValueError("Maximum value can be only 10 characters")
+        snstopicname = "abczys1234"
 
-        #print(mybucket.bucket_name)
+        if not core.Token.is_unresolved(snstopicname) and len(snstopicname) > 10:
+            raise ValueError("Maximum value can be only 10 characters")
+
+        print(mybucket.bucket_name)
